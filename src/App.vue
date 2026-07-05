@@ -5,7 +5,10 @@ let tasks = reactive([]);
 let task = ref('');
 
 function addTask() {
-    tasks.unshift(task.value)
+    if (task.value.trim() !== '') {
+        tasks.unshift(task.value)
+        task.value = ''
+    }
 }
 
 function deleteTask(index) {
